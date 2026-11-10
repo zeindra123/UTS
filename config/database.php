@@ -19,7 +19,15 @@ function getDB() {
     }
 
     $driver = DB_DRIVER;
-    $dataDir = __DIR__ . '/../data';
+
+    // Di Vercel, filesystem read-only kecuali /tmp
+    // Deteksi environment Vercel via env variable
+    if (getenv('VERCEL') || getenv('VERCEL_ENV')) {
+        $dataDir = '/tmp/smart_complaint_data';
+    } else {
+        $dataDir = __DIR__ . '/../data';
+    }
+
     if (!is_dir($dataDir)) {
         mkdir($dataDir, 0777, true);
     }
