@@ -1,0 +1,16 @@
+# Database & user data - jangan di-commit
+data/smart_complaint.sqlite
+data/sessions/
+uploads/
+
+# Keep directory structure
+!data/.gitkeep
+!uploads/.gitkeep
+!data/sessions/.gitkeep
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# PHP temp files
+*.log
